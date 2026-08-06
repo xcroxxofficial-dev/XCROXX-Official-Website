@@ -45,3 +45,6 @@ src/
 - Fully responsive from mobile to desktop.
 - Scroll-reveal, hover and page-load animations via Framer Motion; motion is reduced automatically for users with `prefers-reduced-motion` enabled.
 - Lightbox gallery, animated counters, accordion FAQ and testimonial slider are all built from scratch (no extra UI library dependency).
+
+
+
