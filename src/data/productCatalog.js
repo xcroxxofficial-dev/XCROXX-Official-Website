@@ -3,16 +3,16 @@ export const PRODUCT_CATEGORIES = [
   { id: 'kids', label: 'Kids' },
   { id: 'pvc', label: 'PVC' },
   { id: 'eva', label: 'EVA' },
-  { 
-    id: 'ladies', 
+  {
+    id: 'ladies',
     label: 'Ladies',
     subcategories: [
       { id: '100_series', label: '100 Series' },
       { id: '700_series', label: '700 Series' },
     ]
   },
-  { 
-    id: 'pu_gents', 
+  {
+    id: 'pu_gents',
     label: 'PU Gents',
     subcategories: [
       { id: '200_series', label: '200 Series' },
@@ -21,17 +21,16 @@ export const PRODUCT_CATEGORIES = [
   }
 ];
 
-const imageModules = import.meta.glob('/public/image/product/**/*.{jpg,jpeg,png,webp,avif}', { eager: true });
+const imageModules = import.meta.glob('../assets/product/**/*.{jpg,jpeg,png,webp,avif}', { eager: true, import: 'default' });
 
-export const PRODUCTS = Object.keys(imageModules).map((path, index) => {
-  const url = path.replace('/public', '');
+export const PRODUCTS = Object.entries(imageModules).map(([path, url], index) => {
   const parts = path.split('/');
   const fileName = parts.pop();
   const parentFolder = parts.pop();
   const grandParentFolder = parts.pop();
-  
+
   const artNo = fileName.substring(0, fileName.lastIndexOf('.'));
-  
+
   let category = '';
   let subcategory = null;
 

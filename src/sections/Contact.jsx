@@ -20,7 +20,6 @@ export default function Contact() {
     setSent(true)
   }
 
-  const mapsUrl = COMPANY.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.mapsQuery)}`
 
   return (
     <section id="contact" className="section-pad bg-surface">
@@ -81,18 +80,6 @@ export default function Contact() {
               </a>
             </div>
 
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 relative block rounded-xl overflow-hidden h-40 group"
-            >
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,#222_25%,transparent_25%),linear-gradient(225deg,#222_25%,transparent_25%),linear-gradient(45deg,#222_25%,transparent_25%),linear-gradient(315deg,#222_25%,#1a1a1a_25%)] bg-[length:20px_20px] opacity-40" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 group-hover:bg-black/20 transition-colors">
-                <FaMapMarkerAlt className="text-red text-2xl" />
-                <span className="text-xs font-medium text-white/80">View on Google Maps</span>
-              </div>
-            </a>
           </motion.div>
 
           <motion.form

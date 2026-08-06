@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaArrowRight } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaArrowRight, FaTiktok } from 'react-icons/fa'
 import { COMPANY, FOOTER_LINKS } from '../constants/site'
 
 function FooterColumn({ title, links }) {
@@ -64,6 +64,7 @@ export default function Footer() {
             <div className="flex gap-4 mt-8">
               {[
                 { Icon: FaFacebookF, url: "https://www.facebook.com/share/195kvN4gWU/" },
+                { Icon: FaTiktok, url: "https://www.tiktok.com/@xcroxx.footwear?_r=1&_t=ZS-98eHHRrmtnT" },
                 { Icon: FaInstagram, url: "#" },
                 { Icon: FaLinkedinIn, url: "#" },
                 { Icon: FaYoutube, url: "#" }
@@ -82,7 +83,7 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10">
-            <FooterColumn title="Company" links={FOOTER_LINKS.company} />
+            <FooterColumn title="Quick Links" links={FOOTER_LINKS.quickLinks} />
             <FooterColumn title="Products" links={FOOTER_LINKS.products} />
             <FooterColumn title="Business" links={FOOTER_LINKS.business} />
           </div>

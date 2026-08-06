@@ -9,12 +9,9 @@ import WhatsAppButton from './components/WhatsAppButton'
 import HomePage from './pages/HomePage'
 import CategoryPage from './pages/CategoryPage'
 import AboutPage from './pages/AboutPage'
-import FactoryPage from './pages/FactoryPage'
-import ProcessPage from './pages/ProcessPage'
-import WhyUsPage from './pages/WhyUsPage'
-import GalleryPage from './pages/GalleryPage'
 import ContactPage from './pages/ContactPage'
 import ProductsPage from './pages/ProductsPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -57,13 +54,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/factory" element={<FactoryPage />} />
-        <Route path="/process" element={<ProcessPage />} />
-        <Route path="/why-us" element={<WhyUsPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:category" element={<CategoryPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
       <WhatsAppButton />

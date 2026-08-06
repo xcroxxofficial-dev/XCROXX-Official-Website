@@ -1,175 +1,221 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
-import { FaGraduationCap, FaMedal, FaTrophy } from 'react-icons/fa'
+import { FaMedal, FaLeaf, FaCogs, FaQuoteLeft } from 'react-icons/fa'
 
 export default function AboutPage() {
+  const values = [
+    {
+      icon: <FaMedal className="text-4xl text-red" />,
+      title: "Premium Quality",
+      desc: "We use only the finest materials and strict quality control to ensure every pair meets world-class standards."
+    },
+    {
+      icon: <FaCogs className="text-4xl text-red" />,
+      title: "Innovation",
+      desc: "Embracing cutting-edge technology in our manufacturing processes to create smarter, more durable footwear."
+    },
+    {
+      icon: <FaLeaf className="text-4xl text-red" />,
+      title: "Sustainability",
+      desc: "Committed to eco-friendly practices and sustainable materials to reduce our environmental footprint."
+    }
+  ];
+
   return (
-    <main className="pt-[104px] [&>section:first-child]:!pt-8 pb-20 min-h-screen bg-surface">
-      {/* Company Intro */}
-      <section className="section-pad bg-white">
-        <div className="container-xc">
-          <SectionHeading
-            eyebrow="About XCroxx"
-            title="Crafting the Future of Footwear"
-            desc="At Universal Shoes Industries (XCroxx), we believe that every step matters. Founded on principles of quality, durability, and unmatched comfort, our mission is to deliver premium footwear that meets the diverse needs of modern consumers. Whether it's for performance, safety, or everyday style, our products are a testament to our dedication to excellence."
-            align="center"
+    <main className="pt-[104px] pb-0 min-h-screen bg-surface selection:bg-red selection:text-white overflow-hidden">
+      
+      {/* Hero Section */}
+      <section className="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-ink">
+        <div className="absolute inset-0 z-0 opacity-40 flex items-center justify-center p-10">
+          <img 
+            src="/logo.png" 
+            alt="XCroxx Logo" 
+            className="w-full h-full object-contain invert"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
+        </div>
+        
+        <div className="container-xc relative z-10 text-center px-4 mt-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-6 tracking-tight drop-shadow-lg">
+              Our <span className="text-red">Story</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-body font-light">
+              Crafting the future of footwear with passion, precision, and an unwavering commitment to excellence.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* CEO Section */}
-      <section className="section-pad">
+      {/* Company Intro */}
+      <section className="section-pad bg-white relative">
         <div className="container-xc">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-square bg-gray-100 shadow-xl"
+              className="space-y-6"
             >
-              <img 
-                src="/image/about/ceo.png" 
-                alt="Chief Executive Officer" 
-                className="w-full h-full object-cover object-top"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-8">
-                <h3 className="text-3xl font-bold text-white mb-1">Founder Name</h3>
-                <p className="text-red font-semibold text-lg">Chief Executive Officer</p>
+              <div className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.25em] uppercase text-red mb-2">
+                <div className="w-8 h-[2px] bg-red"></div>
+                About XCroxx
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <SectionHeading
-                eyebrow="Our Leadership"
-                title="A Vision for Global Excellence"
-              />
-              <div className="prose prose-lg text-charcoal/80">
-                <p className="mb-4">
-                  "Our journey began with a simple yet ambitious goal: to redefine the standards of footwear manufacturing. We wanted to create products that not only look good but empower the people who wear them."
-                </p>
-                <p className="mb-4">
-                  With years of industry expertise, our CEO has steered XCroxx through immense growth, focusing on sustainable practices, technological advancements in manufacturing, and fostering a culture of innovation.
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-ink leading-tight">
+                Step into a world of <br/><span className="text-red">unmatched comfort.</span>
+              </h2>
+              <div className="space-y-4 text-charcoal/70 text-lg leading-relaxed">
+                <p>
+                  At Universal Shoes Industries (XCroxx), we believe that every step matters. Founded on principles of quality, durability, and unmatched comfort, our mission is to deliver premium footwear that meets the diverse needs of modern consumers.
                 </p>
                 <p>
-                  Today, XCroxx stands as a symbol of trust and quality, continually pushing boundaries to deliver the best to our customers worldwide.
+                  Whether it's for performance, safety, or everyday style, our products are a testament to our dedication to excellence. We combine traditional craftsmanship with modern technology.
                 </p>
+              </div>
+              
+              <div className="pt-6 grid grid-cols-2 gap-6 border-t border-charcoal/10">
+                <div>
+                  <h4 className="text-4xl font-black text-ink mb-1">8<span className="text-red">+</span></h4>
+                  <p className="text-sm text-charcoal/60 uppercase tracking-wider font-semibold">Years Experience</p>
+                </div>
+                <div>
+                  <h4 className="text-4xl font-black text-ink mb-1">1M<span className="text-red">+</span></h4>
+                  <p className="text-sm text-charcoal/60 uppercase tracking-wider font-semibold">Happy Customers</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-red rounded-3xl transform rotate-3 scale-[1.03] opacity-10 transition-transform duration-500 hover:rotate-6"></div>
+              <div className="relative z-10 w-full h-[400px] md:h-[550px] bg-white rounded-3xl shadow-xl flex items-center justify-center p-8">
+                <img 
+                  src="/image/brand_image.png" 
+                  alt="XCroxx Brand" 
+                  className="w-full h-full object-contain"
+                />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Founders Section */}
-      <section className="section-pad bg-white">
+      {/* Core Values */}
+      <section className="section-pad bg-surface">
         <div className="container-xc">
-          <SectionHeading
-            eyebrow="The Founding Team"
-            title="Meet Our Founders"
-            desc="The visionary minds behind Universal Shoes Industries, dedicated to craftsmanship and innovation."
-            align="center"
-          />
-
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
-            {[
-              { id: 1, img: '/image/about/founder1.png', name: 'Founder One', role: 'Co-Founder & Director' },
-              { id: 2, img: '/image/about/founder2.png', name: 'Founder Two', role: 'Co-Founder & Director' },
-              { id: 3, img: '/image/about/founder3.png', name: 'Founder Three', role: 'Co-Founder & Director' },
-            ].map((founder, index) => (
+          <div className="text-center mb-16">
+            <SectionHeading
+              eyebrow="Our Values"
+              title="What Drives Us Forward"
+              align="center"
+            />
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {values.map((val, idx) => (
               <motion.div
-                key={founder.id}
-                initial={{ opacity: 0, y: 40 }}
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-2 border border-charcoal/5"
               >
-                <div className="relative rounded-xl overflow-hidden aspect-[3/4] mb-6 shadow-lg">
-                  <img 
-                    src={founder.img} 
-                    alt={founder.name} 
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="w-16 h-16 bg-red/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red transition-colors duration-300">
+                  <div className="group-hover:scale-110 transition-transform duration-300 group-hover:brightness-0 group-hover:invert">
+                    {val.icon}
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-ink text-center">{founder.name}</h4>
-                <p className="text-red font-medium text-center">{founder.role}</p>
+                <h3 className="text-2xl font-bold font-heading mb-4 text-ink">{val.title}</h3>
+                <p className="text-charcoal/70 leading-relaxed">{val.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Certificates Section */}
-      <section className="section-pad">
-        <div className="container-xc">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+      {/* Managing Director Section */}
+      <section className="section-pad bg-surface relative overflow-hidden">
+        <div className="container-xc max-w-6xl mx-auto">
+          
+          <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl shadow-ink/5 overflow-hidden flex flex-col md:flex-row border border-charcoal/5">
+            
+            {/* Left Column: Name & Position (Dark Theme) */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-2 lg:order-1"
+              transition={{ duration: 0.8 }}
+              className="md:w-2/5 bg-ink text-white p-12 md:p-16 flex flex-col justify-center relative overflow-hidden"
             >
-              <SectionHeading
-                eyebrow="Quality Assurance"
-                title="Certified for Excellence"
-                desc="Our commitment to quality is unwavering. We adhere to the highest international manufacturing standards to ensure every pair of shoes is flawless."
-              />
+              {/* Abstract decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-red rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/3 -translate-y-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-10 transform -translate-x-1/3 translate-y-1/3"></div>
               
-              <ul className="space-y-6 mt-8">
-                <li className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-red/10 flex items-center justify-center text-red shrink-0">
-                    <FaMedal size={20} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-ink text-lg">ISO 9001 Certified</h5>
-                    <p className="text-charcoal/70 text-sm mt-1">Recognized for our rigorous quality management systems and consistent product excellence.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-red/10 flex items-center justify-center text-red shrink-0">
-                    <FaTrophy size={20} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-ink text-lg">Industry Recognition</h5>
-                    <p className="text-charcoal/70 text-sm mt-1">Awarded for innovation in safety footwear and sustainable manufacturing processes.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-red/10 flex items-center justify-center text-red shrink-0">
-                    <FaGraduationCap size={20} />
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-ink text-lg">Continuous Improvement</h5>
-                    <p className="text-charcoal/70 text-sm mt-1">Dedicated to regular audits and upgrades to stay ahead in footwear technology.</p>
-                  </div>
-                </li>
-              </ul>
+              <FaQuoteLeft className="text-5xl text-white/10 mb-10 relative z-10" />
+              
+              <div className="relative z-10">
+                <h3 className="text-4xl md:text-5xl font-heading font-black leading-tight mb-2 tracking-tight">
+                  Subham
+                  <br />
+                  <span className="text-red">Jaiswal</span>
+                </h3>
+                
+                <div className="w-16 h-1 bg-white/10 my-8 overflow-hidden rounded-full">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "100%" }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="h-full bg-red rounded-full"
+                  />
+                </div>
+                
+                <p className="text-white/60 tracking-[0.25em] uppercase text-sm font-semibold">
+                  Managing Director
+                </p>
+              </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+            {/* Right Column: Quote & Details (Light Theme) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2 p-4 bg-white rounded-2xl shadow-xl border border-black/5"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="md:w-3/5 p-12 md:p-16 relative bg-white flex flex-col justify-center"
             >
-              <img 
-                src="/image/about/certificate.png" 
-                alt="Company Certificate" 
-                className="w-full h-auto rounded-lg"
-              />
+              {/* Massive background quote mark */}
+              <FaQuoteLeft className="absolute top-8 right-8 text-8xl md:text-[140px] text-surface -z-0 opacity-50" />
+              
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-semibold text-ink leading-snug mb-8 relative z-10">
+                "Our journey began with a simple yet ambitious goal: <span className="text-red">to redefine the standards</span> of footwear manufacturing."
+              </h2>
+              
+              <div className="space-y-6 text-charcoal/70 text-lg leading-relaxed relative z-10 font-body">
+                <p>
+                  With years of industry expertise, our Managing Director has steered XCroxx through immense growth, focusing on sustainable practices, technological advancements in manufacturing, and fostering a culture of innovation.
+                </p>
+                <p>
+                  Today, XCroxx stands as a symbol of trust and quality, continually pushing boundaries to deliver the best to our customers worldwide.
+                </p>
+              </div>
             </motion.div>
+
           </div>
+          
         </div>
       </section>
+
     </main>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
@@ -11,12 +11,33 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const location = useLocation()
   const navigate = useNavigate()
+  const headerRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setOpen(false)
+      }
+    }
+    
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside)
+      // also handle touch events for mobile
+      document.addEventListener('touchstart', handleClickOutside)
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [open])
 
   const handleClick = (href) => {
     setOpen(false)
@@ -39,6 +60,7 @@ export default function Navbar() {
 
   return (
     <motion.header
+      ref={headerRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -46,14 +68,28 @@ export default function Navbar() {
         scrolled || location.pathname !== '/' ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
       }`}
     >
-      <div className="container-xc flex items-center justify-between px-6 md:px-10 lg:px-16">
-        <Link to="/" onClick={() => setOpen(false)} className="flex items-center">
-          <img 
-            src="/logo.png" 
-            alt="XCroxx Logo" 
-            className={`w-auto transition-all duration-300 object-contain ${scrolled || location.pathname !== '/' ? 'h-10' : 'h-12'}`} 
-          />
-        </Link>
+      <div className="container-xc flex items-center justify-between px-4 md:px-10 lg:px-16">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <Link to="/" onClick={() => setOpen(false)}>
+            <img 
+              src="/logo.png" 
+              alt="XCroxx Logo" 
+              className={`w-auto transition-all duration-300 object-contain ${scrolled || location.pathname !== '/' ? 'h-9 sm:h-10' : 'h-10 sm:h-12'}`} 
+            />
+          </Link>
+          {/* Header Info */}
+          <div className="flex flex-col justify-center pt-0.5">
+            <span className={`text-[10px] sm:text-xs lg:text-sm font-bold leading-none tracking-tight ${scrolled || location.pathname !== '/' ? 'text-ink' : 'text-white'}`}>
+              {COMPANY.name}
+            </span>
+            <a 
+              href={`tel:${COMPANY.phone}`} 
+              className={`lg:hidden mt-1 text-[9px] sm:text-[10px] font-medium flex items-center gap-1 hover:text-red transition-colors ${scrolled || location.pathname !== '/' ? 'text-charcoal' : 'text-white/80'}`}
+            >
+              <FaPhoneAlt size={8} /> {COMPANY.phone}
+            </a>
+          </div>
+        </div>
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
@@ -168,7 +204,11 @@ export default function Navbar() {
                 Get a Quote
               </button>
 
-              <div className="mt-6 pt-6 border-t border-black/5 flex flex-col gap-4">
+              <div className="mt-6 pt-6 border-t border-black/5 flex flex-col gap-4 pb-4">
+                <div className="mb-1">
+                  <h4 className="font-heading font-bold text-ink text-lg">{COMPANY.name}</h4>
+                  <p className="text-xs text-charcoal/60 font-medium tracking-wide">{COMPANY.tagline}</p>
+                </div>
                 <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 text-sm font-medium text-charcoal hover:text-red transition-colors">
                   <span className="w-8 h-8 rounded-full bg-red/10 text-red flex items-center justify-center"><FaEnvelope size={14} /></span>
                   {COMPANY.email}
