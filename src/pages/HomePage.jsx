@@ -10,9 +10,6 @@ import FAQ from '../sections/FAQ'
 export default function HomePage() {
   const location = useLocation()
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-  }, [])
 
   return (
     <main>
@@ -20,8 +17,8 @@ export default function HomePage() {
       <About hideJourney={true} />
       <Products />
       <Partners />
-      <Testimonials />
-      <FAQ />
+
+
     </main>
   )
 }

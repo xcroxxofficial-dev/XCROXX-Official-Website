@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import Loader from './components/Loader'
@@ -15,6 +15,11 @@ import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname])
 
   // Initialize Lenis smooth scrolling
   useEffect(() => {

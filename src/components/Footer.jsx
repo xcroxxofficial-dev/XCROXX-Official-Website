@@ -52,8 +52,8 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
-          <div className="col-span-2 lg:col-span-4">
+        <div className="flex flex-col md:flex-row justify-between gap-10 lg:gap-16">
+          <div className="max-w-md">
             <Link to="/" className="inline-block bg-white p-2.5 rounded-xl transition-transform hover:scale-105 duration-300 shadow-xl">
               <img src="/logo.png" alt="XCroxx Logo" className="h-10 w-auto object-contain" />
             </Link>
@@ -64,10 +64,7 @@ export default function Footer() {
             <div className="flex gap-4 mt-8">
               {[
                 { Icon: FaFacebookF, url: "https://www.facebook.com/share/195kvN4gWU/" },
-                { Icon: FaTiktok, url: "https://www.tiktok.com/@xcroxx.footwear?_r=1&_t=ZS-98eHHRrmtnT" },
-                { Icon: FaInstagram, url: "#" },
-                { Icon: FaLinkedinIn, url: "#" },
-                { Icon: FaYoutube, url: "#" }
+                { Icon: FaTiktok, url: "https://www.tiktok.com/@xcroxx.footwear?_r=1&_t=ZS-98eHHRrmtnT" }
               ].map(({ Icon, url }, i) => (
                 <a
                   key={i}
@@ -82,10 +79,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="col-span-2 lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10">
+          <div className="md:pr-10 lg:pr-24">
             <FooterColumn title="Quick Links" links={FOOTER_LINKS.quickLinks} />
-            <FooterColumn title="Products" links={FOOTER_LINKS.products} />
-            <FooterColumn title="Business" links={FOOTER_LINKS.business} />
           </div>
         </div>
       </div>
@@ -94,9 +89,7 @@ export default function Footer() {
         <div className="container-xc px-6 md:px-10 lg:px-16 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-white/40">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name} ({COMPANY.brand}). All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <p className="hidden sm:block border-l border-white/20 pl-6">Rupandehi, Nepal</p>
+            <p className="hidden sm:block">Rupandehi, Nepal</p>
           </div>
         </div>
       </div>
