@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import SectionHeading from '../components/SectionHeading'
 import { FaMedal, FaLeaf, FaCogs, FaQuoteLeft } from 'react-icons/fa'
-
+import SEO from '../components/SEO'
 export default function AboutPage() {
   const values = [
     {
@@ -23,6 +23,11 @@ export default function AboutPage() {
 
   return (
     <main className="pt-[104px] pb-0 min-h-screen bg-surface selection:bg-red selection:text-white overflow-hidden">
+      <SEO 
+        title="About Universal Shoes Industries | Footwear Manufacturer in Nepal"
+        description="Learn about Universal Shoes Industries (XCroxx). With over 8 years of experience in Bhairahawa, we manufacture premium quality, comfortable, and sustainable footwear."
+        canonical="/about"
+      />
       
       {/* Hero Section */}
       <section className="relative w-full h-[45vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-ink">

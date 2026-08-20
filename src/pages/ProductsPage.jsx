@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { PRODUCT_CATEGORIES, PRODUCTS } from '../data/productCatalog'
 import { HiX, HiChevronRight, HiOutlineViewGrid } from 'react-icons/hi'
 import { FaChild, FaFemale, FaMale, FaLeaf, FaBoxOpen } from 'react-icons/fa'
-
+import SEO from '../components/SEO'
 // Map categories to specific icons for a more visual sidebar
 const CATEGORY_ICONS = {
   all: HiOutlineViewGrid,
@@ -39,6 +39,11 @@ export default function ProductsPage() {
 
   return (
     <main className="pt-[80px] lg:pt-[96px] min-h-screen bg-[#F8F9FA] flex flex-col">
+      <SEO 
+        title="Footwear Products | Universal Shoes Industries"
+        description="Browse our wide range of premium footwear products including sports shoes, casual shoes, school shoes, and industrial safety shoes manufactured in Nepal."
+        canonical="/products"
+      />
       <div className="container-xc flex-1 py-8 lg:py-12">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
           

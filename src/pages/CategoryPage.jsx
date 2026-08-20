@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 
 const SAMPLE_PRODUCTS = {
   pu: [
@@ -38,6 +39,11 @@ export default function CategoryPage() {
 
   return (
     <div className="min-h-screen pt-32 pb-20 bg-soft/30">
+      <SEO 
+        title={`${categoryName} Footwear | Universal Shoes Industries`}
+        description={`Explore our premium selection of ${categoryName} footwear, engineered for maximum comfort, durability, and style in Bhairahawa, Nepal.`}
+        canonical={`/products/${categoryKey}`}
+      />
       <div className="container-xc px-6 md:px-10 lg:px-16">
         
         {/* Header */}

@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaHome, FaExclamationTriangle } from 'react-icons/fa'
+import SEO from '../components/SEO'
 
 export default function NotFoundPage() {
   return (
     <main className="pt-[104px] pb-20 min-h-[90vh] bg-surface flex items-center justify-center relative overflow-hidden">
-      
+      <SEO 
+        title="Page Not Found | Universal Shoes Industries"
+        description="The page you are looking for does not exist."
+        noindex={true}
+      />
       {/* Decorative Background Elements */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-red/5 rounded-full mix-blend-multiply filter blur-[100px] animate-floaty"></div>
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-ink/5 rounded-full mix-blend-multiply filter blur-[80px] animate-floaty" style={{ animationDelay: '2s' }}></div>
