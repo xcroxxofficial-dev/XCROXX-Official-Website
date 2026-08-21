@@ -45,7 +45,7 @@ export default function About({ hideJourney = false }) {
           </div>
 
           <div>
-            <div className="grid grid-cols-2 gap-5 mb-10">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5 mb-10">
               {STATS.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -53,14 +53,14 @@ export default function About({ hideJourney = false }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="p-7 rounded-2xl bg-ink text-white relative overflow-hidden"
+                  className="p-4 sm:p-7 rounded-2xl bg-ink text-white relative overflow-hidden flex flex-col justify-center"
                 >
-                  <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-red/20 blur-2xl" />
-                  <p className="text-3xl md:text-4xl font-heading font-extrabold text-red relative z-10">
+                  <div className="absolute -right-6 -top-6 w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-red/20 blur-2xl" />
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-red relative z-10">
                     <AnimatedCounter value={stat.display ? 100 : stat.value} display={stat.display} />
                     {!stat.display && stat.suffix}
                   </p>
-                  <p className="mt-2 text-xs md:text-sm text-white/60 relative z-10">{stat.label}</p>
+                  <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs md:text-sm text-white/60 relative z-10 leading-tight">{stat.label}</p>
                 </motion.div>
               ))}
             </div>

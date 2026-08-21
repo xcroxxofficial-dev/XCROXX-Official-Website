@@ -83,14 +83,14 @@ export default function AboutPage() {
                 </p>
               </div>
               
-              <div className="pt-6 grid grid-cols-2 gap-6 border-t border-charcoal/10">
+              <div className="pt-6 grid grid-cols-2 gap-4 sm:gap-6 border-t border-charcoal/10">
                 <div>
-                  <h4 className="text-4xl font-black text-ink mb-1">8<span className="text-red">+</span></h4>
-                  <p className="text-sm text-charcoal/60 uppercase tracking-wider font-semibold">Years Experience</p>
+                  <h4 className="text-3xl sm:text-4xl font-black text-ink mb-1">8<span className="text-red">+</span></h4>
+                  <p className="text-[10px] sm:text-sm text-charcoal/60 uppercase tracking-wide sm:tracking-wider font-semibold">Years Experience</p>
                 </div>
                 <div>
-                  <h4 className="text-4xl font-black text-ink mb-1">1M<span className="text-red">+</span></h4>
-                  <p className="text-sm text-charcoal/60 uppercase tracking-wider font-semibold">Happy Customers</p>
+                  <h4 className="text-3xl sm:text-4xl font-black text-ink mb-1">700<span className="text-red">+</span></h4>
+                  <p className="text-[10px] sm:text-sm text-charcoal/60 uppercase tracking-wide sm:tracking-wider font-semibold">Happy Customers</p>
                 </div>
               </div>
             </motion.div>

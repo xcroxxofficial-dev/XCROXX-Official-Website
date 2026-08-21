@@ -1,7 +1,7 @@
 export const STATS = [
   { label: 'Years of Experience', value: 8, suffix: '+' },
   { label: 'Products Manufactured', value: 4200000, suffix: '+', display: '4.2M+' },
-  { label: 'Happy Clients', value: 850, suffix: '+' },
+  { label: 'Happy Clients', value: 700, suffix: '+' },
   { label: 'Distribution Network', value: 40, suffix: '+', unit: 'Districts' },
 ]
 
